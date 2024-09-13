@@ -1,1 +1,2 @@
-# KMITL_MVC_2024
+# MVC_ExitExam_2024
+KMITL MVC Exit Exam 2024
