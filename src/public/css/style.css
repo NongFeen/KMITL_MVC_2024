@@ -1,33 +1,26 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-size: 36px;
-    min-height: 100vh;
-    color: #fff;
-    background-color: #000;
-    display: grid;
-    place-content: mid;
-}
-
 .container {
+    margin: 0.5% 0; /* Reduce vertical margin */
     display: flex;
-    gap: 20px; /* Adjust spacing between elements */
+    flex-direction: row; /* Stack elements vertically */
+    gap: 5px; /* Reduce the vertical space between elements */
     font-size: 16px;
-
 }
-.text-Input{
-    width: 20%;
-    height: 30px;
-    padding: 1vw;
+
+.text-Input, .id-Input, button {
+    margin: 0; /* Remove additional margins if present */
+    padding: 0.5vw; /* Adjust padding if needed */
     font-size: 14px;
 }
+
+.text-Input {
+    width: 100%; /* Full width for input fields */
+}
+
 .id-Input {
-    width: 5%; /* Adjust this value to make the input smaller */
+    width: 100%; /* Full width for input fields */
+}
+
+button {
     height: 30px;
-    padding: 1vw;  /* Adjust padding for inner spacing */
-    font-size: 14px; /* Adjust font size if needed */
+    width: 100%; /* Full width for buttons */
 }
