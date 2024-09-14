@@ -50,13 +50,10 @@ const deleteEmployee = (req, res) => {
 }
 
 const getEmployee = (req, res) => {
-    const employeeId = parseInt(req.body.id);
-    const employee = data.employees.find(emp => emp.id === employeeId);//store data before it got deleted
+    const employee = data.employees.find(emp => emp.id === parseInt(req.params.id));
     if (!employee) {
-        return res.status(400).json({ "message": `Employee ID ${employeeId} not found` });
+        return res.status(400).json({ "message": `Employee ID ${req.params.id} not found` });
     }
-    const filteredArray = data.employees.filter(emp => emp.id !== employeeId);
-    data.setEmployees(filteredArray);
     res.json(employee);
 }
 

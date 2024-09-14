@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         fetch(`http://localhost:5500/employees/${id}`)
             .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Employee ID ${id} not found`);
-                }
+                // if (!response.ok) {
+                //     throw new Error(`Employee ID ${id} not found`);
+                // }
                 return response.json();
             })
             .then(data => {
