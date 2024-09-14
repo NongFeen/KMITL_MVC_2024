@@ -10,12 +10,24 @@ body {
     color: #fff;
     background-color: #000;
     display: grid;
-    place-content: center;
+    place-content: mid;
 }
 
-.button-container {
+.container {
     display: flex;
-    flex-direction: row;
     gap: 20px; /* Adjust spacing between elements */
     font-size: 16px;
+
+}
+.text-Input{
+    width: 20%;
+    height: 30px;
+    padding: 1vw;
+    font-size: 14px;
+}
+.id-Input {
+    width: 5%; /* Adjust this value to make the input smaller */
+    height: 30px;
+    padding: 1vw;  /* Adjust padding for inner spacing */
+    font-size: 14px; /* Adjust font size if needed */
 }

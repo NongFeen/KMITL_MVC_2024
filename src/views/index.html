@@ -7,37 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
     <link rel="stylesheet" href="../css/style.css" />
+    
 </head>
 
 <body>
-    <h1>Index</h1>
+    <h1>API
+    </h1>
     <div>   
-        <div class="button-container">
+        <div class="container">
             <button type="button" id="getButton">GET</button>
-            <input type="text" id="USEGETAPI" placeholder="Enter ID">
-            <div id="GETstatusMessage" font-size: 16px;></div> 
+            <input type="text" id="USEGETAPI" class="text-Input" placeholder="Enter ID"><br>
         </div>
-
-        <div class="button-container">
+        <div class="container" id="GETstatusMessage" ></div> 
+        <div class="container">
             <button type="button" id="postButton">POST</button>
-            <input type="text" id="USEPOSTAPI_FName" placeholder="Enter First Name">
-            <input type="text" id="USEPOSTAPI_LName" placeholder="Enter Last Name">
-            <div id="POSTstatusMessage"></div> 
+            <input type="text" id="USEPOSTAPI_FName" class="text-Input" placeholder="Enter First Name">
+            <input type="text" id="USEPOSTAPI_LName" class="text-Input" placeholder="Enter Last Name"><br>
         </div>
+        <div class="container" id="POSTstatusMessage"></div> 
 
-        <div class="button-container">
+        <div class="container">
             <button type="button" id="putButton">PUT</button>
-            <input type="text" id="USEPUTAPI_ID" placeholder="Enter Exist ID">
-            <input type="text" id="USEPUTAPI_FName" placeholder="Enter New First Name">
-            <input type="text" id="USEPUTAPI_LName" placeholder="Enter New Last Name">
-            <div id="PUTstatusMessage"></div> 
+            <input type="text" id="USEPUTAPI_ID" class="id-Input" placeholder="ID">
+            <input type="text" id="USEPUTAPI_FName" class="text-Input" placeholder="Enter New First Name">
+            <input type="text" id="USEPUTAPI_LName" class="text-Input" placeholder="Enter New Last Name"><br>
         </div>
-        <div class="button-container">
-            <button type="button" id="deleteButton" >DELETE</button>
-            <input type="text" id="USEDELETEAPI_ID" placeholder="Enter Exist ID">
-            <div id="DELETEstatusMessage"></div> 
+        <div class="container" id="PUTstatusMessage"></div> 
+
+        <div class="container">
+            <button type="button" id="deleteButton"  >DELETE</button>
+            <input type="text" id="USEDELETEAPI_ID" class="id-Input" placeholder="ID"><br>
         </div>
-        
+        <div class="container" id="DELETEstatusMessage"></div> 
+
     </div>
     <script src="../scripts/useapi.js" defer></script>
 </body>
