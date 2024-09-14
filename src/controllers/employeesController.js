@@ -2,6 +2,9 @@ const data = {
     employees: require('../model/employees.json'),
     setEmployees: function (data) { this.employees = data }
 }
+const milkData = {
+    milk: require('../model/milk.json'),
+}
 
 const getAllEmployees = (req, res) => {
     res.json(data.employees);
@@ -23,7 +26,6 @@ const createNewEmployee = (req, res) => {
 }
 
 const updateEmployee = (req, res) => {
-    // Find the employee by ID
     const employee = data.employees.find(emp => emp.id === parseInt(req.body.id));
     if (!employee) {//if not found id
         return res.status(400).json({ "message": `Employee ID ${req.body.id} not found` });
@@ -57,10 +59,47 @@ const getEmployee = (req, res) => {
     res.json(employee);
 }
 
+const milkCow = (req, res) => {
+    const cow = data.employees.find(emp => emp.id === parseInt(req.body.id));
+    const milk = milkData.milk.find(m=> m.bland === m.bland);
+    if (!cow) {
+        return res.status(404).json({ message: 'Cow not found ' + req.id});
+    }
+    if(cow.color=="White"){
+        const chance = 0.005 * (cow.ageMonth % 12); //diff in month
+        if (Math.random() < chance && cow.eatLemon == false){//never eat lemon
+            milk.soy = milk.soy+1;
+            cow.color = "blue"
+            cow.isBSOD = true;
+        }
+        else if(cow.eatLemon == true) // produce sour milk
+            milk.sour = milkCow.sour+1;
+        else
+            milk.bland = milk.bland+1;
+    }
+    if(cow.color=="brown"){
+        const chance = 0.01 * (cow.ageYear); //diff in year
+        if (Math.random() < chance && cow.eatLemon == false){//never eat lemon
+            milk.almond = milk.alomnd+1;
+            cow.color = "blue"
+            cow.isBSOD = true;
+        }
+        else if(cow.eatLemon == true) // produce sour milk
+            milk.sour = milkCow.sour+1;
+        else
+            milk.bland = milk.bland+1;
+    }
+
+    cow.milkCount = cow.milkCount+1;
+
+    res.json(milk);
+};
+
 module.exports = {
     getAllEmployees,
     createNewEmployee,
     updateEmployee,
     deleteEmployee,
-    getEmployee
+    getEmployee,
+    milkCow
 }

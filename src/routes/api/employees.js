@@ -6,9 +6,11 @@ router.route('/')
     .get(employeesController.getAllEmployees)
     .post(employeesController.createNewEmployee)
     .put(employeesController.updateEmployee)
-    .delete(employeesController.deleteEmployee);
+    .delete(employeesController.deleteEmployee)
+    
 
 router.route('/:id')
-    .get(employeesController.getEmployee);
+    .get(employeesController.getEmployee)
+    .put(employeesController.milkCow);
 
 module.exports = router;

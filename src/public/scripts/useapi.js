@@ -3,12 +3,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // GET Button
     const getButton = document.getElementById('getButton');
     const getStatusDiv = document.getElementById('GETstatusMessage');
+    const milkButton = document.getElementById('milkButton');
+    const lemonButton = document.getElementById('addLemon');
 
     getButton.addEventListener('click', () => {
         const id = document.getElementById('USEGETAPI').value.trim();
         
         if (!id) {
             getStatusDiv.textContent = 'Please enter an ID';
+            return;
+        }
+        if (!/^\d{8}$/.test(id)) {
+            getStatusDiv.textContent = 'ID must be exactly 8 digits long';
             return;
         }
         fetch(`${ip}employees/${id}`)
@@ -19,37 +25,47 @@ document.addEventListener('DOMContentLoaded', () => {
                 return response.json();
             })
             .then(data => {
-                getStatusDiv.innerHTML = `
-                    <p><strong>First Name:</strong> ${data.firstname}</p>
-                    <p><strong>Last Name:</strong> ${data.lastname}</p>
+                if(data.message)
+                    getStatusDiv.textContent = `${data.message}`;
+                else{//displaydata
+                    getStatusDiv.innerHTML = `
+                    <p><id="cowid" strong>Cow id: </strong> ${data.id}</p>
+                    <p><strong>Color: </strong> ${data.color}</p>
+                    <p><strong>Year: </strong> ${data.ageYear}</p>
+                    <p><strong>month: </strong> ${data.ageMonth - 12*data.ageYear}</p>
+                    <p><strong>Total month: </strong> ${data.ageMonth}</p>
+                    <p><strong>Milk Count: </strong> ${data.milkCount}</p>
+                    <p><strong>is Eated Lemon: </strong> ${data.eatLemon}</p>
+                    <p><strong>isBSOD: </strong> ${data.isBSOD}</p>
+                    
                 `;
+                }
+                if(data.color ='White'){
+                    lemonButton.style.display= "block";
+                }
+                else if(data.color ='Brown'){
+                
+                }
+                milkButton.style.display= "block";
             })
             .catch(error => {
                 getStatusDiv.textContent = `Error: ${error.message}`;
             });
     });
-    const postButton = document.getElementById('postButton');
-    const postFName = document.getElementById('USEPOSTAPI_FName');
-    const postLName = document.getElementById('USEPOSTAPI_LName');
-    const postStatusDiv = document.getElementById('POSTstatusMessage');
 
-    postButton.addEventListener('click', () => {
-        const firstname = postFName.value.trim();
-        const lastname = postLName.value.trim();
-
-        // input is not blank
-        // if (!firstname || !lastname) {
-        //     postStatusDiv.textContent = 'Both first name and last name are required.';
-        //     return;
-        // }
-        // Create the payload for the POST request
+    //milk button
+    milkButton.addEventListener('click', () => {
+        const cowid = document.getElementById('USEGETAPI').value.trim();
+        
         const payload = {
-            firstname: firstname,
-            lastname: lastname
+            "id":cowid,
         };
-        // Send POST request to the API
-        fetch(`${ip}employees`, {
-            method: 'POST',
+        if (!cowid) {
+            getStatusDiv.textContent = payload;
+            return;
+        }
+        fetch(`${ip}employees/${cowid}`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -59,81 +75,20 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();//just need this idk y
         })
         .then(data => {
-            // if created will have first and lastname
-            if (data.firstname && data.lastname) {
-                postStatusDiv.textContent = `Employee created: ${data.firstname} ${data.lastname}`;
-            } else {//return message from api
-                postStatusDiv.textContent = `${data.message}`;
+            // Ensure the data is an object
+            if (data && typeof data === 'object') {
+                // Create HTML to display the data
+                getStatusDiv.innerHTML = `
+                    <p><strong>Bland Milk: </strong> ${data.bland}</p>
+                    <p><strong>Sour Milk: </strong> ${data.sour}</p>
+                    <p><strong>Chocolate Milk: </strong> ${data.choco}</p>
+                    <p><strong>Soy Milk: </strong> ${data.soy}</p>
+                    <p><strong>Almond Milk: </strong> ${data.almond}</p>
+                `;
+            } else {
+                // Handle unexpected data format
+                getStatusDiv.textContent = 'Unexpected data format received.';
             }
-        })
-    });
-
-    //PUT button
-    const PUTButton = document.getElementById('putButton');
-    const PUTID = document.getElementById('USEPUTAPI_ID');
-    const PUTFName = document.getElementById('USEPUTAPI_FName');
-    const PUTLName = document.getElementById('USEPUTAPI_LName');
-    const PUTStatusDiv = document.getElementById('PUTstatusMessage');
-
-    PUTButton.addEventListener('click', () => {
-        const id = PUTID.value.trim();
-        const firstname = PUTFName.value.trim();
-        const lastname = PUTLName.value.trim();
-
-        // input is not blank
-        // if (!id||!firstname || !lastname) {
-        //     PUTStatusDiv.textContent = 'Both first name and last name are required.';
-        //     return;
-        // }
-        // Create the payload for the PUT request
-        const payload = {
-            id: id,
-            firstname: firstname,
-            lastname: lastname
-        };
-
-        // Send PUT request to the API
-        fetch(`${ip}employees`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        })
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            // if created will have first and lastname
-            if (data.firstname && data.lastname) {
-                PUTStatusDiv.textContent = `Employee update: ${data.firstname} ${data.lastname}`;
-            } else {//return message from api
-                PUTStatusDiv.textContent = `${data.message}`;
-            }
-        })
-    });
-    //Delete button
-    const DELETEButton = document.getElementById('deleteButton');
-    const DELETEID = document.getElementById('USEDELETEAPI_ID');
-    const DELETEStatusDiv = document.getElementById('DELETEstatusMessage');
-    DELETEButton.addEventListener('click', () => {
-        const id = DELETEID.value.trim();
-        const payload = {
-            id: id,
-        };
-        fetch(`${ip}employees`, {
-            method: 'DELETE',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
-        })
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-                DELETEStatusDiv.textContent = `Employee deleted: ${data.firstname} ${data.lastname}`;
-                
         })
     });
 });

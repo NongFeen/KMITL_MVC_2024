@@ -7,3 +7,10 @@
 20240914	03:07:44	d3d37075-e856-4dee-9aa1-3ce39c688f5e	Error: ENOENT: no such file or directory, stat '/home/feen/cloneMVC/views/404.html'
 20240914	03:07:54	2541095a-f3a9-49ad-9da4-19715eafe1b4	Error: ENOENT: no such file or directory, stat '/home/feen/cloneMVC/views/404.html'
 20240914	03:12:23	9e338470-910a-4f32-ad88-a7cb9a3a2699	Error: ENOENT: no such file or directory, stat '/home/feen/cloneMVC/views/src/404.html'
+20240914	14:50:42	179153b1-a1a1-45d0-ab93-d438ea320cae	ReferenceError: dataModel is not defined
+20240914	14:51:05	13894813-f71b-4b71-b582-4f88a8ac4930	ReferenceError: dataModel is not defined
+20240914	14:51:33	c568d94f-ac4d-4666-88aa-5f431c2048d0	TypeError: data.getEmployeeById is not a function
+20240914	14:57:32	443a9eca-8f0d-49ba-b9ed-42cacca8d074	ReferenceError: employeeModel is not defined
+20240914	14:58:04	59110360-3492-43f4-9881-a6e2e75638f2	ReferenceError: cowId is not defined
+20240914	14:58:12	c65a921f-f8f4-4e34-bb4c-29da60e56b46	ReferenceError: milkDataModel is not defined
+20240914	15:05:54	7733445a-5179-40f7-b61d-6115c6046942	TypeError: Cannot read properties of undefined (reading 'bland')
