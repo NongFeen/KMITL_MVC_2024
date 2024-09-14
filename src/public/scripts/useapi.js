@@ -1,3 +1,4 @@
+const ip = window.location.href;
 document.addEventListener('DOMContentLoaded', () => {
     // GET Button
     const getButton = document.getElementById('getButton');
@@ -10,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             getStatusDiv.textContent = 'Please enter an ID';
             return;
         }
-        fetch(`http://localhost:5500/employees/${id}`)
+        fetch(`${ip}employees/${id}`)
             .then(response => {
                 // if (!response.ok) {
                 //     throw new Error(`Employee ID ${id} not found`);
@@ -47,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
             lastname: lastname
         };
         // Send POST request to the API
-        fetch('http://localhost:5500/employees', {
+        fetch(`${ip}employees`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -92,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // Send PUT request to the API
-        fetch('http://localhost:5500/employees', {
+        fetch(`${ip}employees`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -120,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const payload = {
             id: id,
         };
-        fetch('http://localhost:5500/employees', {
+        fetch(`${ip}employees`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
