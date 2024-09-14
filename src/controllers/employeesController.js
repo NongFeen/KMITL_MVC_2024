@@ -1,15 +1,15 @@
-const data = {
+const data = {//load cow data
     employees: require('../model/employees.json'),
     setEmployees: function (data) { this.employees = data }
 }
-const milkData = {
+const milkData = {//load milk data
     milk: require('../model/milk.json'),
 }
-
+//return entire farm as json
 const getAllEmployees = (req, res) => {
     res.json(data.employees);
 }
-
+//POST method to create add cow
 const createNewEmployee = (req, res) => {
     const newEmployee = {
         id: data.employees?.length ? data.employees[data.employees.length - 1].id + 1 : 1,
@@ -24,7 +24,7 @@ const createNewEmployee = (req, res) => {
     data.setEmployees([...data.employees, newEmployee]);
     res.status(201).json(newEmployee);//return only newEmp value
 }
-
+//PUT to update cow
 const updateEmployee = (req, res) => {
     const employee = data.employees.find(emp => emp.id === parseInt(req.body.id));
     if (!employee) {//if not found id
@@ -40,7 +40,7 @@ const updateEmployee = (req, res) => {
     //return the one who got update
     res.json(employee);
 }
-
+//DELETE Method to remove cow
 const deleteEmployee = (req, res) => {
     const employee = data.employees.find(emp => emp.id === parseInt(req.body.id));
     if (!employee) {
@@ -50,7 +50,7 @@ const deleteEmployee = (req, res) => {
     data.setEmployees(filteredArray);
     res.json(employee);
 }
-
+//get 1 cow data
 const getEmployee = (req, res) => {
     const employee = data.employees.find(emp => emp.id === parseInt(req.params.id));
     if (!employee) {
@@ -58,7 +58,7 @@ const getEmployee = (req, res) => {
     }
     res.json(employee);
 }
-
+// milk cow
 const milkCow = (req, res) => {
     const cow = data.employees.find(emp => emp.id === parseInt(req.body.id));
     const milk = milkData.milk.find(m=> m.bland === m.bland);

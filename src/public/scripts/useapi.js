@@ -1,14 +1,13 @@
 const ip = window.location.href;
 document.addEventListener('DOMContentLoaded', () => {
-    // GET Button
+    // find all button
     const getButton = document.getElementById('getButton');
     const getStatusDiv = document.getElementById('GETstatusMessage');
     const milkButton = document.getElementById('milkButton');
     const lemonButton = document.getElementById('addLemon');
-
+    // GET Button
     getButton.addEventListener('click', () => {
         const id = document.getElementById('USEGETAPI').value.trim();
-        
         if (!id) {
             getStatusDiv.textContent = 'Please enter an ID';
             return;
@@ -37,14 +36,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p><strong>Milk Count: </strong> ${data.milkCount}</p>
                     <p><strong>is Eated Lemon: </strong> ${data.eatLemon}</p>
                     <p><strong>isBSOD: </strong> ${data.isBSOD}</p>
-                    
                 `;
                 }
                 if(data.color ='White'){
                     lemonButton.style.display= "block";
                 }
                 else if(data.color ='Brown'){
-                
+                    
                 }
                 milkButton.style.display= "block";
             })
