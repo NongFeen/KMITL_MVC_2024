@@ -12,32 +12,61 @@
 
 <body>
     <h1>API</h1>
-    <!-- <div class="container"> -->
-        <button type="button" id="getButton">GET</button>
-        <input type="text" id="USEGETAPI" class="text-Input" placeholder="Enter ID"><br>
-    <!-- </div> -->
-    <div class="container" id="GETstatusMessage" > </div> 
-    <!-- <div class="container"> -->
-        <button type="button" id="postButton">POST</button>
-        <input type="text" id="USEPOSTAPI_FName" class="text-Input" placeholder="Enter First Name">
-        <input type="text" id="USEPOSTAPI_LName" class="text-Input" placeholder="Enter Last Name"><br>
-    <!-- </div> -->
-    <div class="container" id="POSTstatusMessage"></div> 
+    <div id="mobile-content" class="mobile-only">
+        <!-- <div class="container"> -->
+            <button type="button" class="mobile-button" id="getButton">GET</button>
+            <input type="text" id="USEGETAPI" class="mobile-text-Input" placeholder="Enter ID"><br>
+        <!-- </div> -->
+        <div class="mobile-container" id="GETstatusMessage" ></div> 
+        <!-- <div class="container"> -->
+            <button type="button" class="mobile-button" id="postButton">POST</button>
+            <input type="text" id="USEPOSTAPI_FName" class="mobile-text-Input" placeholder="Enter First Name">
+            <input type="text" id="USEPOSTAPI_LName" class="mobile-text-Input" placeholder="Enter Last Name"><br>
+        <!-- </div> -->
+        <div class="mobile-container" id="POSTstatusMessage"></div> 
 
-    <!-- <div class="container"> -->
-        <button type="button" id="putButton">PUT</button>
-        <input type="text" id="USEPUTAPI_ID" class="id-Input" placeholder="ID">
-        <input type="text" id="USEPUTAPI_FName" class="text-Input" placeholder="Enter New First Name">
-        <input type="text" id="USEPUTAPI_LName" class="text-Input" placeholder="Enter New Last Name"><br>
-    <!-- </div> -->
-    <div class="container" id="PUTstatusMessage"></div> 
+        <!-- <div class="container"> -->
+            <button type="button" class="mobile-button" id="putButton">PUT</button>
+            <input type="text" id="USEPUTAPI_ID" class="mobile-id-Input" placeholder="ID">
+            <input type="text" id="USEPUTAPI_FName" class="mobile-text-Input" placeholder="Enter New First Name">
+            <input type="text" id="USEPUTAPI_LName" class="mobile-text-Input" placeholder="Enter New Last Name"><br>
+        <!-- </div> -->
+        <div class="mobile-container" id="PUTstatusMessage"></div> 
 
-    <!-- <div class="container"> -->
-        <button type="button" id="deleteButton"  >DELETE</button>
-        <input type="text" id="USEDELETEAPI_ID" class="id-Input" placeholder="ID"><br>
-    <!-- </div> -->
-    <div class="container" id="DELETEstatusMessage"> </div> 
+        <!-- <div class="container"> -->
+            <button type="button" class="mobile-button" id="deleteButton"  >DELETE</button>
+            <input type="text" id="USEDELETEAPI_ID" class="mobile-id-Input" placeholder="ID"><br>
+        <!-- </div> -->
+        <div class="mobile-container" id="DELETEstatusMessage"> </div> 
+    </div>
+    <div id="desktop-content"  class="desktop-only">
+        <!-- <div class="container"> -->
+            <button type="button" class="desktop-button" id="getButton">GET</button>
+            <input type="text" id="USEGETAPI" class="desktop-text-Input" placeholder="Enter ID"><br>
+        <!-- </div> -->
+        <div class="desktop-container" id="GETstatusMessage" ></div> 
+        <!-- <div class="container"> -->
+            <button type="button" class="desktop-button" id="postButton">POST</button>
+            <input type="text" id="USEPOSTAPI_FName" class="desktop-text-Input" placeholder="Enter First Name">
+            <input type="text" id="USEPOSTAPI_LName" class="desktop-text-Input" placeholder="Enter Last Name"><br>
+        <!-- </div> -->
+        <div class="desktop-container" id="POSTstatusMessage"></div> 
 
+        <!-- <div class="container"> -->
+            <button type="button" class="desktop-button" id="putButton">PUT</button>
+            <input type="text" id="USEPUTAPI_ID" class="desktop-id-Input" placeholder="ID">
+            <input type="text" id="USEPUTAPI_FName" class="desktop-text-Input" placeholder="Enter New First Name">
+            <input type="text" id="USEPUTAPI_LName" class="desktop-text-Input" placeholder="Enter New Last Name"><br>
+        <!-- </div> -->
+        <div class="desktop-container" id="PUTstatusMessage"></div> 
+
+        <!-- <div class="container"> -->
+            <button type="button" class="desktop-button" id="deleteButton"  >DELETE</button>
+            <input type="text" id="USEDELETEAPI_ID" class="desktop-id-Input" placeholder="ID"><br>
+        <!-- </div> -->
+        <div class="desktop-container" id="DELETEstatusMessage"> </div> 
+    </div>
+    <div id="device test">device </div>
     <script src="../scripts/useapi.js" defer></script>
 </body>
 </html>

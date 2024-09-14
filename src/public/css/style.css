@@ -1,42 +1,46 @@
-@media (max-width: 1000px) {
-    .text-Input, .id-Input, button {
-        margin: 0; 
-        padding: 0.5vw; 
-        font-size: 7vw;
-    }
-    button {
-        height: 10vw;
-        width: 100vw; 
-        font-size: 5vw;
-    }
-  }
-@media (min-width: 1000px){
-    .container {
-        margin: 0.5% 0; 
-        display: flex;
-        flex-direction: row; 
-        gap: 5px; 
-        font-size: 16px;
-    }
-    
-    .text-Input, .id-Input, button {
-        margin: 0; 
-        padding: 0.5vw; 
-        font-size: 14px;
-    }
-    
-    .text-Input {
-        width: 100vw; 
-    }
-    
-    .id-Input {
-        width: 100vw; 
-    }
-    
-    button {
-        height: 30px;
-        width: 100vw; 
-    }
+/*desktop-*/
+.desktop-container {
+    margin: 0.5% 0; 
+    display: flex;
+    flex-direction: row; 
+    gap: 5px; 
+    font-size: 16px;
 }
 
+.desktop-text-Input, .desktop-id-Input, .desktop-button {
+    margin: 0; 
+    padding: 0.5vw; 
+    font-size: 14px;
+}
 
+.desktop-text-Input {
+    width: 100vw; 
+}
+
+.desktop-id-Input {
+    width: 100vw; 
+}
+
+.desktop-button {
+    height: 30px;
+    width: 100vw; 
+}
+
+/* formobile */
+.mobile-container{
+    margin: 0.5% 0; 
+    display: flex;
+    flex-direction: row; 
+    gap: 5px; 
+    font-size: 7vw;
+}
+.mobile-text-Input, .mobile-id-Input, .mobile-button {
+    margin: 0; 
+    padding: 0.5vw; 
+    font-size: 7vw;
+}
+.mobile-button {
+    height: 10vw;
+    width: 100vw; 
+    font-size: 5vw;
+}
